@@ -3,6 +3,7 @@
 	define('BASE_URL', 'http://localhost/stack');
 	include_once "config/config.php";
 	include_once "config/database.php";
+	include_once "config/load.php";
 	include_once "config/session.php";
 	require_once "config/Facebook/autoload.php";
 	

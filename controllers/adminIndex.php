@@ -8,6 +8,7 @@ class adminIndex extends config{
 
     public function showCatagory(){ 
 		$table='catagories';
+		
 		$data['catagoryData'] = $this->db->getuserdata($table);
 		if( $data == true){
 			extract($data);
@@ -17,7 +18,6 @@ class adminIndex extends config{
     public function addCatagory(){
 
 		$catagory = isset($_POST["catagory"])? $_POST["catagory"]: NULL;
-
 		$data  = array(
 			'name' => $catagory
 			);
@@ -25,23 +25,15 @@ class adminIndex extends config{
 		$result = $this->db->userInsert($table, $data);
 		
 		if($result==1){
-			$data['msg'] = "Catagory Added Successfully!";
+			$mdata['msg'] = "Catagory Added Successfully!";
 		}
 		else{
-			$data['msg'] = "Insertion Failed!";
+			$mdata['msg'] = "Insertion Failed!";
 		}
 
-		$data['catagoryData'] = $this->db->getuserdata($table);
-		if( $data == true){
-			extract($data);
-		}
-		include_once('views/components/addCatagory.php');
+		session::set("msg", $mdata['msg']);
 
-		// if(strlen($catagory)<1){
-		// 	$error['catagory']="The Minimun character For First Name should be {$min}!!";
-		// }
-		
-	//	include_once('views/components/addCatagory.php');
+		header("Location: ".BASE_URL."/adminIndex/showCatagory");
 	}
 
 

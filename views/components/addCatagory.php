@@ -1,17 +1,23 @@
 <div class="container">
 <?php 
-   if(isset($msg)){
-      echo`
-         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-           <strong>Great!</strong>$msg.
+
+
+if(session::get("msg")){
+   $msg = session::get("msg");
+   session::unset("msg");
+      echo'
+         <div class="alert alert-primary alert-dismissible fade show" role="alert">
+           <strong>Great!</strong> '.$msg.'.
            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
-         </div>`;
+         </div>';
    }
+
 ?>
 <!-- Search form -->
 <!-- <input class="form-control catagory-add " type="text" placeholder="Search" aria-label="Search"> -->
+
 <form class="form-inline mr-auto" method="post" action="<?php echo BASE_URL.'/adminIndex/addCatagory'; ?>">
   <input class="form-control mr-sm-2" type="text" name='catagory' placeholder="Catagory Name" aria-label="Search" required>
   <button class="btn btn-unique btn-rounded btn-sm my-0" type="submit">Add</button>

@@ -9,6 +9,7 @@ class config{
 	protected $db = array();
 	protected $FB = array();
 	protected $helper = array();
+	protected $load = array();
 	
 	public function __construct(){
 		$dsn = 'mysql:dbname=db_stack; host=localhost';
@@ -22,6 +23,7 @@ class config{
 			'default_graph_version' => 'v2.10'
 		]);
 		$this->helper = $this->FB->getRedirectLoginHelper();
+		$this->load = new load();
 	}
 }
 
