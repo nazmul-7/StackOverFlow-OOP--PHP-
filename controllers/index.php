@@ -7,8 +7,9 @@ class index extends config{
 	}
 
     public function home(){
-		//include_once('views/partials/header.php');
-		include_once('views/components/home.php');
+		$this->load->partial("header");
+		$this->load->view("home");
+		$this->load->partial("footer");
 	}
 
 	public function signIn(){
@@ -16,12 +17,19 @@ class index extends config{
 		$redirectURL = BASE_URL.'/usersController/fbLogin';
 		$permissions = ['email'];
 		$loginURL = $this->helper->getLoginUrl($redirectURL, $permissions);
-	//	include_once('views/partials/header.php');
-		include_once('views/components/signin.php');
+		$this->load->partial("header");
+		$this->load->view("signin");
+		$this->load->partial("footer");
 	}
 	
 	public function signUp(){
-	//	include_once('views/partials/header.php');
-		include_once('views/components/signup.php');
+		$this->load->partial("header");
+		$this->load->view("signup");
+		$this->load->partial("footer");
+	}
+	public function blank(){
+		$this->load->partial("header");
+		$this->load->view("blank");
+		$this->load->partial("footer");
 	}
 }

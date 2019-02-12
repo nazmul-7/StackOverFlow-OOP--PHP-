@@ -6,8 +6,10 @@
 	include_once "config/load.php";
 	include_once "config/session.php";
 	require_once "config/Facebook/autoload.php";
+	require_once "vendor/autoload.php";
+	include_once "config/mailtrap.php";
 	
-	include_once('views/partials/header.php');
+	
 	$url=isset($_GET["url"])? $_GET["url"]: NULL;
 	if($url != NULL){
 		$url = rtrim($url, '/');
@@ -36,7 +38,7 @@
 		$auto->home();
 	}
 
-	include_once('views/partials/footer.php');
+	
 ?>
 
 

@@ -18,8 +18,8 @@
          <tr>
             <td>Category</td>
             <td><select class="browser-default custom-select" value='' name='category_id' >
-                  <option selected>Open this select Catagory</option>
-                  <?php foreach ($catagory as $key => $value) {
+                  <option selected>Open this select Category</option>
+                  <?php foreach ($category as $key => $value) {
                      
                   ?>
                   <option value="<?php echo $value['id'];?>"><?php echo $value['name'];?></option>

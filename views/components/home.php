@@ -2,9 +2,7 @@
 <?php
     $username='Guest';
     if(session::get("login") == true){
-        if(session::get("status")==true){
-            $username = session::get('firstName');
-        }
+        $username = session::get('firstName');
     }
 ?>
 

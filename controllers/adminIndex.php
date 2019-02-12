@@ -7,25 +7,25 @@ class adminIndex extends config{
 	}
 
     public function showCatagory(){ 
-		$table='catagories';
-		
-		$data['catagoryData'] = $this->db->getuserdata($table);
+		$table='categories';
+		$data['categoryData'] = $this->db->getuserdata($table);
 		if( $data == true){
 			extract($data);
 		}
-		include_once('views/components/addCatagory.php');
+		$this->load->partial("header");
+		$this->load->view("addCatagory",$data);
+		$this->load->partial("footer");
 	}
     public function addCatagory(){
-
-		$catagory = isset($_POST["catagory"])? $_POST["catagory"]: NULL;
+		$category = isset($_POST["category"])? $_POST["category"]: NULL;
 		$data  = array(
-			'name' => $catagory
+			'name' => $category
 			);
-		$table='catagories';
+		$table='categories';
 		$result = $this->db->userInsert($table, $data);
 		
 		if($result==1){
-			$mdata['msg'] = "Catagory Added Successfully!";
+			$mdata['msg'] = "Category Added Successfully!";
 		}
 		else{
 			$mdata['msg'] = "Insertion Failed!";
